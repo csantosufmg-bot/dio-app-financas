@@ -1,0 +1,564 @@
+Bom dia!
+Quero criar um aplicativo de Organização de Finanças Pessoais que funcione por meio de conversas com o usuário.  
+A ideia é facilitar o controle financeiro de forma simples e natural, sem formulários manuais ou planilhas complexas. Preciso que seja com design universal onde múltiplos usuários consigam obter uma boa experiência no uso do aplicativo.
+Quero que analise meu PRD abaixo e faça suas considerações para melhora-lo ainda mais, para que depois eu utilize-o no Lovable para gerar o app com o melhores recursos.
+
+# Problema
+Muitas pessoas desistem de controlar seus gastos porque os apps atuais exigem muita entrada manual e pouca personalização.  
+Quero resolver isso com uma experiência de conversa e recomendações automáticas de economia.
+
+# Público-Alvo
+Pessoas que querem começar a organizar suas finanças de forma prática e sem complicação, principalmente iniciantes.
+
+# Funcionalidades-Chave
+1. Registrar gastos via chat em linguagem natural.  
+2. Classificar automaticamente as transações.  
+3. Definir e acompanhar metas financeiras, que sejam rapidamente visualizadas pelo usuário.
+4. Receber dicas de economia do “Agente Financeiro”.  
+5. Visualizar relatórios e gráficos simples e personalizados. Estes relatórios precisam estar indicados através de uma aba para acesso rápido. 
+6. Gerar extrato com opções de identificar o período de transações, opção de entradas e/ou saídas e opção do tipo de transação, além da possibilidade de exportar via excel.
+
+# Entregável da IA
+Gerar um plano de MVP com as principais telas, recursos necessários e um esboço de validação inicial.  
+Usar tom educativo e linguagem acessível, em português.
+Resumo: Plano de MVP focado em conversação, simplicidade e design universal, com telas essenciais, recursos técnicos e roteiro de validação para começar em Macapá, Amapá (horário local: 02/01/2026, 10:13 BRT); priorize entrada por linguagem natural, classificação automática e metas visíveis para reduzir fricção e aumentar adesão.
+
+Guia rápido de decisões e perguntas-chave
+Decisão principal: priorizar conversação (chat-first) vs entrada assistida (formulários mínimos).
+
+Perguntas para definir escopo: 1) Quer integração com bancos (Open Finance) desde o MVP? 2) Suporte a múltiplas moedas/contas? 3) Nível de automação desejado para categorização (100% automático ou revisão do usuário)?
+
+Critérios de sucesso iniciais: retenção 7 dias ≥ 30%, NPS inicial ≥ 30, e taxa de registro de transações via chat ≥ 60%.
+
+MVP — Principais telas e fluxo (prioridade alta → baixa)
+Tela	Objetivo	Prioridade
+Chat principal	Registrar gastos/receitas em linguagem natural; histórico conversacional	Alta
+Resumo / Dashboard	Visualização rápida de saldo, metas e dica do dia	Alta
+Metas	Criar/acompanhar metas com progresso visual	Alta
+Transações	Lista filtrável; opção editar/corrigir categorias	Média
+Relatórios	Gráficos simples (gastos por categoria, tendência mensal)	Média
+Extrato / Export	Filtros por período, tipo; exportar Excel	Baixa
+Sources: .
+
+Recursos técnicos necessários
+NLP conversacional para parsing de entradas em PT-BR (intents, entidades); modelo local ou API com fallback para correção manual.
+
+Motor de categorização (ML) treinado com regras + aprendizado incremental do usuário.
+
+Armazenamento seguro (criptografia em trânsito e repouso) e conformidade com LGPD.
+
+APIs bancárias / Open Finance (opcional no MVP; aumenta automação).
+
+Frontend acessível: contraste, tamanhos de fonte ajustáveis, navegação por voz e teclado (design universal).
+
+Experiência de usuário e design universal
+Reduza fricção: entrada por texto/voz com respostas curtas e confirmações rápidas; evite formulários longos.
+
+Transparência: mostre como a IA categorizou uma transação e permita correção em 1 toque.
+
+Acessibilidade: suporte a leitores de tela, alto contraste e fluxos simplificados para iniciantes.
+
+Esboço de validação inicial (3 etapas)
+Prototype test (2 semanas): teste de usabilidade com 8–12 usuários iniciantes; medir tempo para registrar 5 transações e taxa de sucesso.
+
+Beta fechado (4 semanas): 100 usuários; métricas: frequência de uso, correções de categoria, conversões de metas.
+
+Lançamento controlado (8 semanas): A/B test de mensagens do Agente Financeiro (personalizadas vs genéricas); medir retenção e NPS.
+
+Riscos, limitações e recomendações
+Privacidade e confiança são críticos; comunique claramente armazenamento e uso de dados (LGPD).
+
+Integração bancária acelera adoção, mas aumenta complexidade regulatória; considere como recurso pós‑MVP.
+
+Sobrecarga de notificações pode reduzir retenção — use recomendações contextuais e opt‑in.
+
+Próximo passo sugerido: defina se quer Open Finance no MVP e escolha 3 métricas de sucesso (retenção, taxa de registro por chat, NPS). Posso transformar isso em um backlog de histórias de usuário pronto para o Lovable. 
+
+Perguntas para definir escopo: 
+1) Quer integração com bancos (Open Finance) desde o MVP? Não será necessário.
+2) Suporte a múltiplas moedas/contas? Nessa versão inicial somente uma moeda e um conta.
+3) Nível de automação desejado para categorização (100% automático ou revisão do usuário)? Categorização 100% automática;
+Confirmação das escolhas de escopo
+Obrigado — confirmado: sem integração bancária no MVP, uma moeda e uma conta apenas, e categorização 100% automática. Vou ajustar o PRD e o plano de MVP com essas restrições em mente.
+
+Resumo executivo e objetivos do MVP
+Objetivo: lançar um app conversacional de organização financeira que permita a um usuário iniciante registrar e acompanhar finanças apenas por conversa, com categorização automática confiável, visualização clara de metas e exportação de extrato.
+Principais hipóteses a validar: 1) Usuários conseguem registrar 5 transações via chat em menos de 3 minutos; 2) Taxa de acerto da categorização automática ≥ 85% após 2 semanas de uso; 3) Retenção de 7 dias ≥ 30%.
+
+MVP — Telas principais e recursos por tela
+Tela	Função principal	Recursos essenciais
+Chat principal	Registrar transações e interagir com o Agente Financeiro	Entrada por texto e voz; parsing NL em PT-BR; confirmação automática breve; histórico conversacional; botão rápido para desfazer última ação
+Resumo Dashboard	Visão imediata do estado financeiro	Saldo atual; progresso de metas; dica do dia do Agente; cartão com gasto do mês
+Metas	Criar e acompanhar metas financeiras	Criar meta por conversa; barra de progresso; previsão de conclusão automática
+Transações	Revisar e corrigir transações	Lista cronológica; filtros por período e tipo; busca por texto; opção de marcar transações como recorrentes
+Relatórios	Insights simples e acionáveis	Gráfico de pizza por categoria; gráfico de tendência mensal; explicação em linguagem natural do que mudou
+Extrato e Export	Gerar e exportar extrato	Filtros por período, entradas/saídas, tipo; botão exportar Excel (.xlsx)
+Recursos técnicos e arquitetura mínima
+NLP conversacional PT-BR: intent detection, entity extraction (valor, data, categoria implícita, descrição), normalização de valores e datas.
+
+Motor de categorização 100% automático: modelo híbrido regras + ML com fallback de regras; atualização incremental com dados anônimos do produto.
+
+Banco de dados: esquema simples para usuário, conta única, transações, metas, histórico de conversas.
+
+Segurança e privacidade: criptografia TLS; criptografia em repouso; políticas de retenção; textos claros sobre LGPD na tela de onboarding.
+
+Frontend acessível: componentes com contraste alto, tamanhos de fonte ajustáveis, suporte a navegação por teclado e leitores de tela.
+
+Backend: API REST para transações, categorização e relatórios; fila para processamento assíncrono de NLP se necessário.
+
+Exportação Excel: geração server-side de .xlsx com cabeçalho configurável.
+
+Conversação e UX conversacional
+Design de mensagens: respostas curtas, confirmação automática e opção de “corrigir” em um toque.
+
+Exemplos de entradas esperadas:
+
+“Comprei pão R$ 8 agora”
+
+“Recebi salário R$ 2.500 dia 05”
+
+“Transferi R$ 200 para aluguel ontem”
+
+Fluxos críticos:
+
+Registro rápido: usuário digita; sistema extrai valor, data e categoria; responde “Ok — R$ 8 em Alimentação hoje. Salvar?” com botões Sim / Editar.
+
+Correção em 1 toque: ao abrir transação, tocar em categoria abre lista sugerida; tocar em “Não é isso” reclassifica e atualiza histórico.
+
+Mensagens do Agente Financeiro: dicas curtas e acionáveis, máximo 1 por dia por padrão; opt‑in para notificações mais frequentes.
+
+Validação inicial e métricas
+Fase 1 Prototype Usability (2 semanas)
+
+Teste com 8–12 usuários iniciantes; métricas: tempo médio para registrar 5 transações, taxa de sucesso sem ajuda.
+Fase 2 Beta Fechado (4 semanas)
+
+100 usuários; métricas: acurácia de categorização, número médio de correções por usuário, engajamento diário.
+Fase 3 Lançamento Controlado (8 semanas)
+
+A/B test de mensagens do Agente; métricas: retenção 7/30 dias, NPS, taxa de exportação de extratos.
+
+Métricas chave a acompanhar
+
+Taxa de registro por chat (meta ≥ 60%)
+
+Acurácia de categorização (meta ≥ 85%)
+
+Retenção 7 dias (meta ≥ 30%)
+
+Correções por transação (meta ≤ 0.2 correções/transação)
+
+Backlog priorizado e histórias de usuário
+Registro por chat básico — Como usuário, quero registrar uma transação dizendo o valor e descrição para que o app salve automaticamente. Critério: salvar transação com valor, data e categoria detectados.
+
+Confirmação rápida — Como usuário, quero confirmar ou editar a transação em um toque. Critério: botões Sim / Editar após extração.
+
+Dashboard resumo — Como usuário, quero ver saldo e metas na tela inicial. Critério: cartão de metas e saldo visíveis.
+
+Categorização automática — Como produto, quero que o motor classifique transações sem intervenção. Critério: pipeline ML + regras em produção.
+
+Exportar extrato — Como usuário, quero exportar extrato filtrado em Excel. Critério: arquivo .xlsx gerado com filtros aplicados.
+
+Acessibilidade — Como usuário com necessidades especiais, quero navegar por teclado e leitores de tela. Critério: conformidade com WCAG 2.1 AA em telas críticas.
+
+Riscos e mitigação
+Risco: categorização 100% automática gera frustração se errar muito.
+Mitigação: oferecer correção em 1 toque, explicar razão da categoria e melhorar modelo com dados reais.
+
+Risco: excesso de mensagens do Agente reduz retenção.
+Mitigação: limitar mensagens por padrão e permitir opt‑in.
+
+Risco: preocupações com privacidade.
+Mitigação: transparência no onboarding, opção de apagar dados e política de retenção curta.
+
+Próximos passos recomendados
+Criar protótipo de chat (click‑through) e testar com 8–12 usuários iniciantes.
+
+Implementar pipeline de categorização mínima com regras + modelo leve e métricas de confiança por transação.
+
+Definir KPIs e dashboard de analytics para acompanhar acurácia e retenção desde o primeiro dia.
+
+Preparar textos de onboarding e política de privacidade em linguagem simples e direta.
+
+Se quiser, eu já transformo o backlog em histórias de usuário detalhadas com critérios de aceitação e um roadmap de 8 semanas pronto para importar no Lovable. Quer que eu gere isso agora?
+
+Pode gerar por favor!
+Resumo executivo
+Plano pronto para importar no Lovable: backlog priorizado com histórias de usuário detalhadas e critérios de aceitação, e um roadmap de 8 semanas focado em lançar o MVP conversacional (uma conta, uma moeda, categorização 100% automática). Objetivo imediato: validar usabilidade do chat, acurácia de categorização e retenção inicial.
+
+Backlog priorizado com critérios de aceitação
+Cada história tem ID, descrição curta, critério de aceitação e prioridade.
+
+Epic A — Entrada por conversa e core financeiro
+A-01 Registro por chat básico — Como usuário, quero registrar uma transação dizendo valor e descrição para que o app salve automaticamente.  
+Critérios de aceitação:
+
+O sistema extrai valor, data (quando informada ou inferida) e descrição;
+
+O sistema atribui categoria automática;
+
+Após envio, aparece confirmação: “Salvo — R$ X em [Categoria] em [Data]” com botões Sim / Editar / Desfazer;
+Prioridade: Alta.
+
+A-02 Confirmação rápida e desfazer — Como usuário, quero confirmar ou desfazer a última ação em um toque.  
+Critérios de aceitação:
+
+Botões Sim / Editar / Desfazer aparecem imediatamente;
+
+Desfazer reverte a última transação em até 10 segundos;
+Prioridade: Alta.
+
+A-03 Entrada por voz — Como usuário, quero ditar transações para registrar sem digitar.  
+Critérios de aceitação:
+
+Reconhecimento de voz em PT-BR converte para texto;
+
+Fluxo de extração e confirmação igual ao texto;
+Prioridade: Média.
+
+Epic B — Categorização e motor ML
+B-01 Motor de categorização 100% automático — Como produto, quero classificar transações automaticamente.  
+Critérios de aceitação:
+
+Pipeline híbrido regras + ML em produção;
+
+Cada transação recebe categoria e score de confiança;
+
+Logs de decisão armazenados para auditoria;
+Prioridade: Alta.
+
+B-02 Feedback implícito para melhorar modelo — Como produto, quero coletar correções do usuário para treinar o modelo.  
+Critérios de aceitação:
+
+Correções são registradas como pares (texto original → categoria corrigida);
+
+Endpoint para exportar dataset de correções.
+Prioridade: Média.
+
+Epic C — Visão e metas
+C-01 Dashboard resumo — Como usuário, quero ver saldo, gasto do mês e metas na tela inicial.  
+Critérios de aceitação:
+
+Cartões: Saldo, Gasto mês, Meta principal;
+
+Dica do dia do Agente Financeiro exibida;
+Prioridade: Alta.
+
+C-02 Criar meta por conversa — Como usuário, quero criar meta financeira conversando.  
+Critérios de aceitação:
+
+Fluxo: “Quero juntar R$ X para [objetivo] em Y meses”;
+
+Meta salva com barra de progresso e previsão de conclusão.
+Prioridade: Alta.
+
+Epic D — Revisão, relatórios e export
+D-01 Lista de transações e busca — Como usuário, quero revisar e buscar transações.  
+Critérios de aceitação:
+
+Lista cronológica com filtros por período e tipo;
+
+Busca por texto retorna resultados relevantes em <2s.
+Prioridade: Média.
+
+D-02 Relatórios simples — Como usuário, quero gráficos por categoria e tendência mensal.  
+Critérios de aceitação:
+
+Gráfico pizza por categoria; gráfico linha por mês;
+
+Texto explicativo em linguagem natural destacando variações.
+Prioridade: Média.
+
+D-03 Extrato e export Excel — Como usuário, quero exportar extrato filtrado em .xlsx.  
+Critérios de aceitação:
+
+Filtros aplicados (período, entradas/saídas, tipo) refletidos no arquivo;
+
+Arquivo gerado e disponível para download.
+Prioridade: Baixa.
+
+Epic E — Acessibilidade e segurança
+E-01 Acessibilidade WCAG 2.1 AA — Como usuário com necessidades especiais, quero navegar com leitores de tela e teclado.  
+Critérios de aceitação:
+
+Elementos semânticos, labels ARIA, contraste mínimo e foco visível;
+
+Testes com leitor de tela aprovados em telas críticas.
+Prioridade: Alta.
+
+E-02 Segurança e privacidade LGPD — Como usuário, quero saber como meus dados são usados e poder apagar meus dados.  
+Critérios de aceitação:
+
+Onboarding com linguagem simples sobre uso de dados;
+
+Endpoint para exclusão de conta e dados.
+Prioridade: Alta.
+
+Roadmap de 8 semanas (sprint-by-sprint)
+Cada semana corresponde a um sprint de 1 semana; foco em entregáveis mínimos e testes rápidos.
+
+Semana	Objetivo principal	Entregáveis
+Semana 1	Protótipo conversacional e arquitetura	Click‑through do chat; definição de schema DB; API design; critérios de aceitação.
+Semana 2	Implementar registro por chat básico	Parser NL mínimo (valor, data, descrição); confirmação Sim/Editar/Desfazer; testes de usabilidade iniciais.
+Semana 3	Motor de categorização inicial	Regras + modelo leve; score de confiança; logs de decisão; integração com chat.
+Semana 4	Dashboard e metas básicas	Cartões de saldo e meta; criar meta por conversa; barra de progresso.
+Semana 5	Transações e busca	Lista cronológica, filtros básicos, busca por texto; correções manuais simples.
+Semana 6	Relatórios e export básico	Gráficos pizza/linha; geração de .xlsx server-side; testes de export.
+Semana 7	Acessibilidade e segurança	Implementação WCAG 2.1 AA em telas críticas; onboarding LGPD; endpoint de exclusão.
+Semana 8	Beta fechado e métricas	Lançamento beta 100 usuários; dashboard de analytics; coleta de feedback e ajustes críticos.
+Plano de validação e métricas de sucesso
+Testes de usabilidade semanais durante Sprints 2–4 com 8–12 usuários iniciantes. Medir: tempo para registrar 5 transações, taxa de sucesso sem ajuda.
+
+Beta fechado (Semana 8) com 100 usuários para validar:
+
+Acurácia de categorização (meta ≥ 85%);
+
+Retenção 7 dias (meta ≥ 30%);
+
+Taxa de registro por chat (meta ≥ 60%).
+
+Métricas operacionais: latência de extração < 1s para respostas do chat; tempo de geração de .xlsx < 10s.
+
+Handoff para Lovable e checklist de entrega
+Artefatos e especificações a fornecer
+
+Proto de chat (click‑through) e fluxos principais.
+
+Backlog (histórias acima) em CSV/JSON com prioridades e critérios.
+
+Wireframes das telas: Chat, Dashboard, Metas, Transações, Relatórios, Extrato.
+
+Especificação de API: endpoints para transações, categorização, metas, export, autenticação.
+
+Requisitos de acessibilidade: checklist WCAG 2.1 AA e exemplos de componentes.
+
+Textos de onboarding e mensagens do Agente em PT-BR (tom educativo).
+
+Plano de testes: scripts de usabilidade, KPIs e cronograma de beta.
+
+Dados de analytics: eventos mínimos (registro_transacao, correcao_categoria, export_extrato, abrir_dashboard, completar_meta).
+
+Política de privacidade resumida e fluxo de exclusão de dados.
+
+Se quiser, eu converto cada história em cards prontos para o Lovable (título, descrição curta, critérios, estimativa) e gero o roadmap em formato CSV para importação. Deseja que eu gere os cards agora?
+
+Sim! Gere por favor!
+Cards prontos para Lovable (CSV)
+Abaixo está o CSV pronto para copiar/colar no Lovable. Cada célula está em uma linha única; os critérios de aceitação estão separados por ;. Estimativas em pontos de história.
+
+csv
+ID,Title,Description,AcceptanceCriteria,Priority,Estimate
+A-01,Registro por chat básico,"Registrar transação via chat com extração automática de valor, data e descrição.","Extrai valor; Extrai data quando informada ou inferida; Extrai descrição; Atribui categoria automática; Exibe confirmação 'Salvo — R$ X em [Categoria] em [Data]' com botões Sim;Editar;Desfazer",Alta,3
+A-02,Confirmação rápida e desfazer,"Permitir confirmar, editar ou desfazer a última transação em um toque.","Botões Sim;Editar;Desfazer aparecem após extração; Desfazer reverte última transação em até 10s; Editar abre fluxo de edição rápido",Alta,2
+A-03,Entrada por voz,"Permitir ditar transações em PT-BR com mesmo fluxo do texto.","Reconhecimento de voz PT-BR converte para texto; Extração de valor/data/descrição funciona igual ao texto; Confirmação Sim/Editar/Desfazer disponível",Média,5
+B-01,Motor de categorização 100% automático,"Pipeline híbrido regras + ML que classifica transações automaticamente.","Pipeline regras+ML em produção; Cada transação recebe categoria e score de confiança; Logs de decisão armazenados para auditoria",Alta,8
+B-02,Feedback implícito para melhorar modelo,"Registrar correções do usuário para treinar o modelo posteriormente.","Correções armazenadas como pares (texto original→categoria corrigida); Endpoint para exportar dataset de correções",Média,3
+C-01,Dashboard resumo,"Tela inicial com saldo, gasto do mês e meta principal com dica do Agente.","Cartões Saldo;Gasto mês;Meta principal visíveis; Dica do dia exibida; Atualização em tempo real após nova transação",Alta,5
+C-02,Criar meta por conversa,"Criar metas financeiras por meio de conversas naturais.","Fluxo 'Quero juntar R$ X para [objetivo] em Y meses' salva meta; Barra de progresso exibida; Previsão de conclusão calculada",Alta,5
+D-01,Lista de transações e busca,"Revisar transações, aplicar filtros e buscar por texto.","Lista cronológica com filtros por período e tipo; Busca por texto retorna resultados relevantes em <2s; Opção marcar como recorrente",Média,5
+D-02,Relatórios simples,"Gráficos simples por categoria e tendência mensal com explicação em linguagem natural.","Gráfico pizza por categoria; Gráfico linha por mês; Texto explicativo em linguagem natural destacando variações",Média,5
+D-03,Extrato e export Excel,"Gerar extrato filtrado e exportar em .xlsx com filtros aplicados.","Filtros por período;entradas/saídas;tipo aplicados; Arquivo .xlsx gerado refletindo filtros; Tempo de geração <10s",Baixa,3
+E-01,Acessibilidade WCAG 2.1 AA,"Garantir navegação por teclado e leitores de tela nas telas críticas.","Elementos semânticos e labels ARIA implementados; Contraste mínimo e foco visível; Testes com leitor de tela aprovados nas telas críticas",Alta,5
+E-02,Segurança e privacidade LGPD,"Onboarding claro sobre uso de dados e opção de exclusão de conta e dados.","Onboarding com linguagem simples sobre uso de dados; Endpoint para exclusão de conta e dados funcionando; Política de retenção documentada",Alta,3
+Cards detalhados prontos para importação
+A-01 Registro por chat básico
+Descrição  
+Registrar uma transação via chat com extração automática de valor, data e descrição.
+
+Critérios de aceitação
+
+Extrai valor;
+
+Extrai data quando informada ou inferida;
+
+Extrai descrição;
+
+Atribui categoria automática;
+
+Exibe confirmação: “Salvo — R$ X em [Categoria] em [Data]” com botões Sim / Editar / Desfazer.
+
+Prioridade: Alta  
+Estimativa: 3 pontos
+
+A-02 Confirmação rápida e desfazer
+Descrição  
+Permitir confirmar, editar ou desfazer a última transação em um toque.
+
+Critérios de aceitação
+
+Botões Sim / Editar / Desfazer aparecem imediatamente após a extração;
+
+Desfazer reverte a última transação em até 10 segundos;
+
+Editar abre fluxo de edição rápido com campos essenciais.
+
+Prioridade: Alta  
+Estimativa: 2 pontos
+
+A-03 Entrada por voz
+Descrição  
+Permitir ditar transações em PT-BR com o mesmo fluxo do texto.
+
+Critérios de aceitação
+
+Reconhecimento de voz em PT-BR converte para texto;
+
+Extração de valor/data/descrição funciona igual ao texto;
+
+Confirmação Sim / Editar / Desfazer disponível.
+
+Prioridade: Média  
+Estimativa: 5 pontos
+
+B-01 Motor de categorização 100% automático
+Descrição  
+Pipeline híbrido (regras + ML) que classifica transações automaticamente.
+
+Critérios de aceitação
+
+Pipeline regras + ML em produção;
+
+Cada transação recebe categoria e score de confiança;
+
+Logs de decisão armazenados para auditoria.
+
+Prioridade: Alta  
+Estimativa: 8 pontos
+
+B-02 Feedback implícito para melhorar modelo
+Descrição  
+Registrar correções do usuário para treinar o modelo posteriormente.
+
+Critérios de aceitação
+
+Correções registradas como pares (texto original → categoria corrigida);
+
+Endpoint para exportar dataset de correções disponível.
+
+Prioridade: Média  
+Estimativa: 3 pontos
+
+C-01 Dashboard resumo
+Descrição  
+Tela inicial com saldo, gasto do mês e meta principal, incluindo dica do Agente.
+
+Critérios de aceitação
+
+Cartões Saldo, Gasto mês, Meta principal visíveis;
+
+Dica do dia do Agente exibida;
+
+Atualização em tempo real após nova transação.
+
+Prioridade: Alta  
+Estimativa: 5 pontos
+
+C-02 Criar meta por conversa
+Descrição  
+Criar metas financeiras por meio de conversas naturais com previsão automática.
+
+Critérios de aceitação
+
+Fluxo “Quero juntar R$ X para [objetivo] em Y meses” salva a meta;
+
+Barra de progresso exibida;
+
+Previsão de conclusão calculada e mostrada.
+
+Prioridade: Alta  
+Estimativa: 5 pontos
+
+D-01 Lista de transações e busca
+Descrição  
+Revisar transações, aplicar filtros e buscar por texto.
+
+Critérios de aceitação
+
+Lista cronológica com filtros por período e tipo;
+
+Busca por texto retorna resultados relevantes em <2s;
+
+Opção para marcar transações como recorrentes.
+
+Prioridade: Média  
+Estimativa: 5 pontos
+
+D-02 Relatórios simples
+Descrição  
+Gráficos simples por categoria e tendência mensal com explicações em linguagem natural.
+
+Critérios de aceitação
+
+Gráfico pizza por categoria;
+
+Gráfico linha por mês;
+
+Texto explicativo em linguagem natural destacando variações.
+
+Prioridade: Média  
+Estimativa: 5 pontos
+
+D-03 Extrato e export Excel
+Descrição  
+Gerar extrato filtrado e exportar em .xlsx com filtros aplicados.
+
+Critérios de aceitação
+
+Filtros por período, entradas/saídas, tipo aplicados;
+
+Arquivo .xlsx gerado refletindo os filtros;
+
+Tempo de geração < 10s.
+
+Prioridade: Baixa  
+Estimativa: 3 pontos
+
+E-01 Acessibilidade WCAG 2.1 AA
+Descrição  
+Garantir navegação por teclado e leitores de tela nas telas críticas.
+
+Critérios de aceitação
+
+Elementos semânticos e labels ARIA implementados;
+
+Contraste mínimo e foco visível;
+
+Testes com leitor de tela aprovados nas telas críticas.
+
+Prioridade: Alta  
+Estimativa: 5 pontos
+
+E-02 Segurança e privacidade LGPD
+Descrição  
+Onboarding claro sobre uso de dados e opção de exclusão de conta e dados.
+
+Critérios de aceitação
+
+Onboarding com linguagem simples sobre uso de dados;
+
+Endpoint para exclusão de conta e dados funcionando;
+
+Política de retenção documentada.
+
+Prioridade: Alta  
+Estimativa: 3 pontos
+
+Observações finais e próximos passos
+O CSV acima está formatado para importação direta; revise estimativas e prioridades conforme capacidade do time.
+
+Recomendo importar os cards e rodar uma sessão de planning para ajustar pontos e dividir tarefas técnicas (NLP, backend, frontend, acessibilidade).
+
+Posso agora gerar o roadmap em CSV separado ou converter cada card em um formato de card detalhado com checklist de tarefas técnicas por card. Se preferir, já preparo os cards em formato JSON para importação em outras ferramentas.
+
+Gere o roadmap em CSV por favor!
+Roadmap de 8 semanas (CSV)
+csv
+Semana,Objetivo principal,Entregáveis
+Semana 1,Protótipo conversacional e arquitetura,"Click-through do chat; Definição do schema DB; API design; Critérios de aceitação"
+Semana 2,Implementar registro por chat básico,"Parser NL mínimo (valor;data;descrição); Confirmação Sim/Editar/Desfazer; Testes de usabilidade iniciais"
+Semana 3,Motor de categorização inicial,"Pipeline regras + modelo leve; Score de confiança; Logs de decisão; Integração com chat"
+Semana 4,Dashboard e metas básicas,"Cartões Saldo;Gasto mês;Meta principal; Criar meta por conversa; Barra de progresso"
+Semana 5,Transações e busca,"Lista cronológica; Filtros por período e tipo; Busca por texto <2s; Correções manuais simples"
+Semana 6,Relatórios e export básico,"Gráfico pizza por categoria; Gráfico linha por mês; Geração .xlsx server-side; Testes de export"
+Semana 7,Acessibilidade e segurança,"Implementação WCAG 2.1 AA em telas críticas; Onboarding LGPD; Endpoint de exclusão de dados"
+Semana 8,Beta fechado e métricas,"Lançamento beta 100 usuários; Dashboard de analytics;
